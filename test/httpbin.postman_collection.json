@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "c74eea8f-8d43-4a95-8816-b51e41df331a",
+		"name": "httpbin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "684acd95-dbbc-4386-a838-a80ff18d3ce4",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"key1\": \"{{value1}}\",\n    \"key2\": \"{{value2}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://httpbin.org/post",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4b2becb5-64e1-4ff8-9644-a31d3b15306a",
+				"type": "text/javascript",
+				"exec": [
+					"var sendBusyRequest = () => pm.sendRequest(\"http://localhost:5000/busy\", function (err, res) {});",
+					"",
+					"var sendReadyRequest = () => {",
+					"    pm.sendRequest(\"http://localhost:5000/ready\", (err, res) => {",
+					"        console.log(res.json());",
+					"        if (res.json().ready) {",
+					"            sendBusyRequest();",
+					"        } else {",
+					"            setTimeout(sendReadyRequest, 500);",
+					"        }",
+					"    });",
+					"};",
+					"",
+					"var wait = (ms) => {",
+					"    var start = new Date().getTime();",
+					"    var end = start;",
+					"    while(end < start + ms) {",
+					"        end = new Date().getTime();",
+					"\t}",
+					"};",
+					"",
+					"sendReadyRequest();"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6e1206c1-8a8a-44b9-a3f4-2b5e879d9ba6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
