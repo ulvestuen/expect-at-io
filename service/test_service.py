@@ -38,8 +38,8 @@ class TestService:
         start_time = time.time()
         max_wait = 5
         while continue_check:
-            print("Waiting 500 ms for next result check.")
-            time.sleep(0.5)
+            print("Waiting 100 ms for next result check.")
+            time.sleep(0.1)
             if not self.ready_for_new_test:
                 self.compare_result_with_expected()
             if self.ready_for_new_test:

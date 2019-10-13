@@ -68,7 +68,7 @@
 					"        if (res.json().ready) {",
 					"            sendBusyRequest();",
 					"        } else {",
-					"            setTimeout(sendReadyRequest, 500);",
+					"            setTimeout(sendReadyRequest, 100);",
 					"        }",
 					"    });",
 					"};",
@@ -90,13 +90,13 @@
 	],
 	"variable": [
 		{
-			"id": "ba98df5e-6f78-44ae-90a0-bd89a8f5e6c7",
+			"id": "0e24ac0f-0be0-4b8e-9c8a-520d1d5b5891",
 			"key": "value1",
 			"value": "z1",
 			"type": "string"
 		},
 		{
-			"id": "c51b64e1-e7bd-4f6e-9f1a-b5b6992ebbb6",
+			"id": "83edfe32-9db3-409a-99c9-88dabbb35a0a",
 			"key": "value2",
 			"value": "z2",
 			"type": "string"

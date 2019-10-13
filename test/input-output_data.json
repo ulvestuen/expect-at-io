@@ -23,7 +23,7 @@
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/json",
-        "body": "{\n    \"key1\": \"a1\",\n    \"key2\": \"a2\"\n}"
+        "body": "{ \"key1\": \"a1\",\"key2\": \"a2\"}"
       }
     ],
     [
@@ -31,7 +31,7 @@
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/json",
-        "body": "{\n    \"key1\": \"b1\",\n    \"key2\": \"b2\"\n}"
+        "body": "{\"key1\": \"b1\",\"key2\": \"b2\"}"
       }
     ],
     [
@@ -39,7 +39,7 @@
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/json",
-        "body": "{\n    \"key1\": \"c1\",\n    \"key2\": \"c2\"\n}"
+        "body": "{\"key1\": \"c1\",\"key2\": \"c2\"}"
       }
     ],
     [
@@ -47,7 +47,7 @@
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/json",
-        "body": "{\n    \"key1\": \"d1\",\n    \"key2\": \"d2\"\n}"
+        "body": "{\"key1\": \"d1\",\"key2\": \"d2\"}"
       }
     ]
   ]
