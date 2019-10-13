@@ -1,0 +1,54 @@
+{
+  "input": [
+    {
+      "value1": "a1",
+      "value2": "a2"
+    },
+    {
+      "value1": "b1",
+      "value2": "b2"
+    },
+    {
+      "value1": "c1",
+      "value2": "c2"
+    },
+    {
+      "value1": "d1",
+      "value2": "d2"
+    }
+  ],
+  "output": [
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\n    \"key1\": \"a1\",\n    \"key2\": \"a2\"\n}"
+      }
+    ],
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\n    \"key1\": \"b1\",\n    \"key2\": \"b2\"\n}"
+      }
+    ],
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\n    \"key1\": \"c1\",\n    \"key2\": \"c2\"\n}"
+      }
+    ],
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\n    \"key1\": \"d1\",\n    \"key2\": \"d2\"\n}"
+      }
+    ]
+  ]
+}

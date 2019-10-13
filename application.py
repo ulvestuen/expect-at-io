@@ -7,7 +7,7 @@ test_service = TestService()
 api = ApiController(test_service)
 app.add_url_rule('/run', 'run', api.run, methods=["POST"])
 app.add_url_rule('/collection', 'collection', api.collection, methods=["GET"])
-app.add_url_rule('/testdata', 'test_data', api.test_data, methods=["GET"])
+app.add_url_rule('/inputdata', 'input_data', api.input_data, methods=["GET"])
 app.add_url_rule('/ready', 'ready', api.ready, methods=["GET"])
 app.add_url_rule('/busy', 'busy', api.busy, methods=["GET"])
 

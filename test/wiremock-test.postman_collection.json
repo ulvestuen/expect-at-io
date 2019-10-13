@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "c74eea8f-8d43-4a95-8816-b51e41df331a",
-		"name": "httpbin",
+		"name": "wiremock-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -39,12 +39,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://httpbin.org/post",
-					"protocol": "https",
+					"raw": "http://localhost:9998/post",
+					"protocol": "http",
 					"host": [
-						"httpbin",
-						"org"
+						"localhost"
 					],
+					"port": "9998",
 					"path": [
 						"post"
 					]
@@ -73,14 +73,6 @@
 					"    });",
 					"};",
 					"",
-					"var wait = (ms) => {",
-					"    var start = new Date().getTime();",
-					"    var end = start;",
-					"    while(end < start + ms) {",
-					"        end = new Date().getTime();",
-					"\t}",
-					"};",
-					"",
 					"sendReadyRequest();"
 				]
 			}
@@ -94,6 +86,20 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ba98df5e-6f78-44ae-90a0-bd89a8f5e6c7",
+			"key": "value1",
+			"value": "z1",
+			"type": "string"
+		},
+		{
+			"id": "c51b64e1-e7bd-4f6e-9f1a-b5b6992ebbb6",
+			"key": "value2",
+			"value": "z2",
+			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}
