@@ -1,5 +1,5 @@
-from flask import request, jsonify
 import json
+from flask import request, jsonify
 
 
 class ApiController:
@@ -14,6 +14,11 @@ class ApiController:
 
         collection = json.load(collection_file)
         test_data = json.load(io_data_file)
+
+        pre_request_event_index = [e["listen"] for e in collection["event"]].index("prerequest")
+        pre_request_script = collection["event"][pre_request_event_index]["script"]["exec"]
+        with open("resources/postman_pre-request.json", "r") as f:
+            pre_request_script += json.load(f)
 
         self.test_service.init()
         self.test_service.collection = collection

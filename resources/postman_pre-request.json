@@ -1,0 +1,16 @@
+[
+  "var sendBusyRequest = () => pm.sendRequest(\"http://localhost:5000/busy\", function (err, res) {});",
+  "",
+  "var sendReadyRequest = () => {",
+  "    pm.sendRequest(\"http://localhost:5000/ready\", (err, res) => {",
+  "        console.log(res.json());",
+  "        if (res.json().ready) {",
+  "            sendBusyRequest();",
+  "        } else {",
+  "            setTimeout(sendReadyRequest, 100);",
+  "        }",
+  "    });",
+  "};",
+  "",
+  "sendReadyRequest();"
+]

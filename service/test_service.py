@@ -1,7 +1,7 @@
 import subprocess
-import time
 import threading
-import requests
+import time
+
 from service.wiremock_result_checker import WireMockResultChecker
 
 
