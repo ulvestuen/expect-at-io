@@ -18,7 +18,8 @@ Install dependencies:
 ```
 pip install -r requirements.txt
 ```
-Start application:
+
+## Run test
 ```
 python3 application.py
 ```
