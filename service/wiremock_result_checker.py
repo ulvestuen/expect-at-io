@@ -1,5 +1,6 @@
 import requests
 import json
+import flatten_dict
 
 
 class WireMockResultChecker:
@@ -22,7 +23,8 @@ class WireMockResultChecker:
             print(result_body)
             print("Expected body:")
             print(expected_body)
-            return result_body == expected_body
+            return self.is_equal_objects(flatten_dict.flatten(result_body, reducer="path", enumerate_types=(list,)),
+                                         flatten_dict.flatten(expected_body, reducer="path", enumerate_types=(list,)))
 
     @staticmethod
     def reset_mock(expected_result):
@@ -32,3 +34,13 @@ class WireMockResultChecker:
     @staticmethod
     def handler_json(body_string):
         return json.loads(body_string)
+
+    @staticmethod
+    def is_equal_objects(actual, expected):
+        is_equal = expected.keys() == actual.keys()
+
+        for key in expected.keys():
+            if expected[key] != "TO_BE_IGNORED":
+                is_equal = is_equal and expected[key] == actual[key]
+
+        return is_equal

@@ -47,7 +47,7 @@
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/json",
-        "body": "{\"key1\": \"d1\",\"key2\": \"d2\"}"
+        "body": "{\"key1\": \"d1\",\"key2\": \"TO_BE_IGNORED\"}"
       }
     ]
   ]
