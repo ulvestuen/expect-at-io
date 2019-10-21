@@ -6,11 +6,11 @@
   * [Newman Github repository](https://github.com/postmanlabs/newman)
 
 ## Setup
-First create python virtual environment:
+From within the `src/` folder, first create a python virtual environment:
 ```
 python3 -m venv env
 ```
-Activate python virtual environment:
+Activate the python virtual environment:
 ```
 source env/bin/activate
 ```
@@ -19,14 +19,32 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-## Run test
+## How to run a test (example)
+
+### Start test framework
 ```
 python3 application.py
 ```
 
+### Start test object
+From within the `example/` folder, run the following script to start an example instance of wiremock:
+```
+./start_wiremock.sh
+```
+
+### Run test
+Test is initiated by the following curl command:
+```
+curl -X POST \
+  http://localhost:5000/run \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F collection=@wiremock-test.postman_collection.json \
+  -F testdata=@input-output_data.json
+```
+
 ## Teardown
-Deactivate virtual environment:
+Deactivate the virtual environment:
 ```
 deactivate
 ```
-Remove virtual environment by deleting `env/` folder.
+Remove the virtual environment by deleting `env/` folder.
