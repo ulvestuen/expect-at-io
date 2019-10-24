@@ -13,6 +13,7 @@ class TestService:
     output_data = None
 
     result_checkers = {}
+    test_results = {}
 
     def __init__(self):
         self.init()
@@ -45,7 +46,7 @@ class TestService:
             if self.ready_for_new_test:
                 continue_check = False
             elif time.time() > start_time + max_wait:
-                self.mark_test_failed()
+                self.register_failed_test()
                 self.get_ready_for_new_test()
                 continue_check = False
 
@@ -56,7 +57,7 @@ class TestService:
                               for result_check in result_check_list])
 
         if all_results_ok:
-            print("Results checked OK for test with id: " + str(self.current_test_id))
+            self.register_successful_test()
             self.get_ready_for_new_test()
 
     def get_ready_for_new_test(self):
@@ -66,8 +67,13 @@ class TestService:
         self.current_test_id += 1
         self.ready_for_new_test = True
 
-    def mark_test_failed(self):
+    def register_failed_test(self):
+        self.test_results[self.current_test_id] = {"test_id": self.current_test_id, "result": "Failed"}
         print("Results check failed for test with id: " + str(self.current_test_id))
+
+    def register_successful_test(self):
+        self.test_results[self.current_test_id] = {"test_id": self.current_test_id, "result": "Success"}
+        print("Results checked OK for test with id: " + str(self.current_test_id))
 
     def get_result_check_list(self):
         expected_results = self.output_data[self.current_test_id]

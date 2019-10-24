@@ -8,7 +8,7 @@ class ApiController:
     def __init__(self, service):
         self.test_service = service
 
-    def run(self):
+    def load(self):
         collection_file = request.files["collection"]
         io_data_file = request.files["testdata"]
 
@@ -25,13 +25,24 @@ class ApiController:
         self.test_service.input_data = test_data["input"]
         self.test_service.output_data = test_data["output"]
 
+        return "Test case loaded. Input data available at /inputdata \n" \
+               "Expected output data available at /outputdata \n" \
+               "Postman collection available at /collection"
+
+    def run(self):
         return self.test_service.run_test()
+
+    def results(self):
+        return jsonify(self.test_service.test_results)
 
     def collection(self):
         return jsonify(self.test_service.collection)
 
     def input_data(self):
         return jsonify(self.test_service.input_data)
+
+    def output_data(self):
+        return jsonify(self.test_service.output_data)
 
     def ready(self):
         return jsonify({"ready": self.test_service.ready_for_new_test})
