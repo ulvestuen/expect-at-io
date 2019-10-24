@@ -33,14 +33,25 @@ From within the `example/` folder, run the following script to start an example 
 ```
 
 ### Run test
-Test is initiated by the following curl command:
+Test is loaded by the following curl command:
 ```
 curl -X POST \
-  http://localhost:5000/run \
+  http://localhost:5000/load \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F collection=@wiremock-test.postman_collection.json \
   -F testdata=@input-output_data.json
 ```
+
+Then run the test:
+```
+curl -X POST http://localhost:5000/run
+```
+
+Obtain test results:
+```
+curl -X GET http://localhost:5000/results
+```
+
 
 ## Teardown
 Deactivate the virtual environment:
