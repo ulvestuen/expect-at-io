@@ -27,7 +27,7 @@ python3 application.py
 ```
 
 ### Start test object
-From within the `example/` folder, run the following script to start an example instance of wiremock:
+From within the `example/wiremock-test/` folder, run the following script to start an example instance of wiremock:
 ```
 ./start_wiremock.sh
 ```
@@ -38,8 +38,16 @@ Test is loaded by the following curl command:
 curl -X POST \
   http://localhost:5000/load \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
-  -F collection=@wiremock-test.postman_collection.json \
-  -F testdata=@input-output_data.json
+  -F collection=@wiremock-test-json.postman_collection.json \
+  -F testdata=@input-output_data-json.json
+```
+
+```
+curl -X POST \
+  http://localhost:5000/load \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F collection=@wiremock-test-xml.postman_collection.json \
+  -F testdata=@input-output_data-xml.json
 ```
 
 Then run the test:

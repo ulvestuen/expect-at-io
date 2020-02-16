@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "c74eea8f-8d43-4a95-8816-b51e41df331a",
-		"name": "wiremock-test",
+		"name": "wiremock-test-json",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

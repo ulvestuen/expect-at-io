@@ -1,0 +1,54 @@
+{
+  "input": [
+    {
+      "value1": "a1",
+      "value2": "a2"
+    },
+    {
+      "value1": "b1",
+      "value2": "b2"
+    },
+    {
+      "value1": "c1",
+      "value2": "c2"
+    },
+    {
+      "value1": "d1",
+      "value2": "d2"
+    }
+  ],
+  "output": [
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>a1</key1>\n\t<key2>a2</key2>\n</test>"
+      }
+    ],
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>b1</key1>\n\t<key2>b2</key2>\n</test>"
+      }
+    ],
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>c1</key1>\n\t<key2>c2</key2>\n</test>"
+      }
+    ],
+    [
+      {
+        "mock_type": "wiremock",
+        "mock_url": "http://localhost:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>d1</key1>\n\t<key2>TO_BE_IGNORED</key2>\n</test>"
+      }
+    ]
+  ]
+}

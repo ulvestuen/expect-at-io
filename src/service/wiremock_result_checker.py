@@ -1,5 +1,6 @@
 import requests
 import json
+import xmltodict
 import flatten_dict
 
 
@@ -8,6 +9,9 @@ class WireMockResultChecker:
 
     def __init__(self):
         self.body_type_handlers["application/json"] = self.handler_json
+        self.body_type_handlers["application/soap+xml"] = self.handler_xml
+        self.body_type_handlers["application/xml"] = self.handler_xml
+        self.body_type_handlers["text/xml"] = self.handler_xml
 
     def is_equal_to_expected(self, expected_result):
         wiremock_url = expected_result["mock_url"]
@@ -34,6 +38,10 @@ class WireMockResultChecker:
     @staticmethod
     def handler_json(body_string):
         return json.loads(body_string)
+
+    @staticmethod
+    def handler_xml(body_string):
+        return xmltodict.parse(body_string)
 
     @staticmethod
     def is_equal_objects(actual, expected):
