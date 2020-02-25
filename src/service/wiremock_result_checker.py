@@ -23,12 +23,8 @@ class WireMockResultChecker:
             result_body_string = result_array[0]["request"]["body"]
             result_body = self.body_type_handlers[body_type](result_body_string)
             expected_body = self.body_type_handlers[body_type](expected_body_string)
-            print("Actual body:")
-            print(result_body)
-            print("Expected body:")
-            print(expected_body)
-            return self.is_equal_objects(flatten_dict.flatten(result_body, reducer="path", enumerate_types=(list,)),
-                                         flatten_dict.flatten(expected_body, reducer="path", enumerate_types=(list,)))
+            return self.is_equal_objects(flatten_dict.flatten(result_body, reducer="path"),
+                                         flatten_dict.flatten(expected_body, reducer="path"))
 
     @staticmethod
     def reset_mock(expected_result):

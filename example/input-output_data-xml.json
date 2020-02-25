@@ -20,6 +20,7 @@
   "output": [
     [
       {
+        "description": "First test",
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/xml",
@@ -28,6 +29,7 @@
     ],
     [
       {
+        "description": "Second test",
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/xml",
@@ -36,6 +38,7 @@
     ],
     [
       {
+        "description": "Third test",
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/xml",
@@ -44,6 +47,7 @@
     ],
     [
       {
+        "description": "Fourth test",
         "mock_type": "wiremock",
         "mock_url": "http://localhost:9998/__admin/requests",
         "body_type": "application/xml",
