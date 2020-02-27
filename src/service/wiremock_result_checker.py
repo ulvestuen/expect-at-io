@@ -23,8 +23,10 @@ class WireMockResultChecker:
             result_body_string = result_array[0]["request"]["body"]
             result_body = self.body_type_handlers[body_type](result_body_string)
             expected_body = self.body_type_handlers[body_type](expected_body_string)
-            return self.is_equal_objects(flatten_dict.flatten(result_body, reducer="path"),
-                                         flatten_dict.flatten(expected_body, reducer="path"))
+            return self.is_equal_objects(flatten_dict.flatten(result_body, enumerate_types=(list,)),
+                                         flatten_dict.flatten(expected_body, enumerate_types=(list,)))
+        else:
+            return True if expected_body_string == "TO_BE_IGNORED" else False
 
     @staticmethod
     def reset_mock(expected_result):
