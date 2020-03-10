@@ -1,8 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 from api.api_controller import ApiController
 from service.test_service import TestService
 
 app = Flask(__name__)
+CORS(app)
 test_service = TestService()
 api = ApiController(test_service)
 app.add_url_rule('/load', 'load', api.load, methods=["POST"])
