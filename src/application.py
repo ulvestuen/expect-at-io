@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from api.api_controller import ApiController
 from service.test_service import TestService
+import sys
 
 app = Flask(__name__)
 CORS(app)
@@ -18,4 +19,5 @@ app.add_url_rule('/busy', 'busy', api.busy, methods=["GET"])
 
 
 if __name__ == '__main__':
-    app.run()
+    host_ip = sys.argv[1] if len(sys.argv) > 1 else '127.0.0.1'
+    app.run(host=host_ip)

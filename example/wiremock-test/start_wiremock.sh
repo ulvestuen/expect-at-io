@@ -10,4 +10,4 @@ else
 	wget $url
 fi
 
-java -jar $wmfilename --verbose --port 9998 &
+java -jar $wmfilename --verbose --port 9998

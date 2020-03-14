@@ -22,14 +22,28 @@ pip install -r requirements.txt
 ## How to run a test (example)
 
 ### Start test framework
+### On localhost
 ```
 python3 application.py
 ```
+### In docker
+From the `/expect-at-io` folder, run the following command to build a docker image:
+```
+docker build -t expect-at-io:latest .
+docker run --name expect-at-io -p 5000:5000 expect-at-io:latest <optional bind-address (default 127.0.0.1)>
+```
 
 ### Start test object
+### On localhost
 From within the `example/wiremock-test/` folder, run the following script to start an example instance of wiremock:
 ```
 ./start_wiremock.sh
+```
+### In docker
+From within the `example/wiremock-test/` folder, run the following script to start an example instance of wiremock:
+```
+docker build -t wiremock-test:latest .
+docker run --name wiremock-test -p 9998:9998 wiremock-test:latest
 ```
 
 ### Run test
