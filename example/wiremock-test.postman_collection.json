@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "c74eea8f-8d43-4a95-8816-b51e41df331a",
-		"name": "wiremock-test-json",
+		"name": "wiremock-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "/post",
+			"name": "/post (json)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -25,8 +25,8 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -39,12 +39,59 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9998/post",
+					"raw": "http://{{hostname}}:{{port}}/post",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{hostname}}"
 					],
-					"port": "9998",
+					"port": "{{port}}",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/post (xml)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "684acd95-dbbc-4386-a838-a80ff18d3ce4",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>{{value1}}</key1>\n\t<key2>{{value2}}</key2>\n</test>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{hostname}}:{{port}}/post",
+					"protocol": "http",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "{{port}}",
 					"path": [
 						"post"
 					]

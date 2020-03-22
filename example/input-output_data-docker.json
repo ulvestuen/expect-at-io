@@ -1,0 +1,102 @@
+{
+  "input": [
+    {
+      "hostname": "wiremock-test",
+      "port": "9998",
+      "value1": "a1",
+      "value2": "a2"
+    },
+    {
+      "hostname": "wiremock-test",
+      "port": "9998",
+      "value1": "b1",
+      "value2": "b2"
+    },
+    {
+      "hostname": "wiremock-test",
+      "port": "9998",
+      "value1": "c1",
+      "value2": "c2"
+    },
+    {
+      "hostname": "wiremock-test",
+      "port": "9998",
+      "value1": "d1",
+      "value2": "d2"
+    }
+  ],
+  "output": [
+    [
+      {
+        "description": "First test (json)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{ \"key1\": \"a1\",\"key2\": \"a2\"}"
+      }
+    ],
+    [
+      {
+        "description": "First test (xml)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>a1</key1>\n\t<key2>a2</key2>\n</test>"
+      }
+    ],
+    [
+      {
+        "description": "Second test (json)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\"key1\": \"b1\",\"key2\": \"b2\"}"
+      }
+    ],
+    [
+      {
+        "description": "Second test (xml)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>b1</key1>\n\t<key2>b2</key2>\n</test>"
+      }
+    ],
+    [
+      {
+        "description": "Third test (json)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\"key1\": \"c1\",\"key2\": \"c2\"}"
+      }
+    ],
+    [
+      {
+        "description": "Third test (xml)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>c1</key1>\n\t<key2>c2</key2>\n</test>"
+      }
+    ],
+    [
+      {
+        "description": "Fourth test (json)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/json",
+        "body": "{\"key1\": \"d1\",\"key2\": \"TO_BE_IGNORED\"}"
+      }
+    ],
+    [
+      {
+        "description": "Fourth test (xml)",
+        "mock_type": "wiremock",
+        "mock_url": "http://wiremock-test:9998/__admin/requests",
+        "body_type": "application/xml",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<test type=\"test\">\n\t<key1>d1</key1>\n\t<key2>TO_BE_IGNORED</key2>\n</test>"
+      }
+    ]
+  ]
+}

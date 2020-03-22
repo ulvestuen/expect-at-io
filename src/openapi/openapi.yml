@@ -1,0 +1,101 @@
+openapi: "3.0.2"
+info:
+  title: expect-at-io API
+  description: Administrative REST API to control the test framework `expect-at-io`
+  version: "1.0.0"
+  license:
+    name: MIT
+    url: https://github.com/ulvestuen/expect-at-io/blob/master/LICENSE
+
+paths:
+  /load:
+    post:
+      tags:
+        - Operation
+      summary: Load postman collection and input-output data into test framework.
+      operationId: api.api_controller.load
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                collection:
+                  type: string
+                  format: binary
+                testdata:
+                  type: string
+                  format: binary
+      responses:
+        200:
+          description: Successfully loaded test cases.
+
+  /run:
+    post:
+      tags:
+        - Operation
+      summary: Run the loaded test cases.
+      operationId: api.api_controller.run
+      responses:
+        200:
+          description: Successfully started running test cases.
+
+  /inputdata:
+    get:
+      tags:
+        - Test case information
+      summary: Get details of loaded input data.
+      operationId: api.api_controller.input_data
+      responses:
+        200:
+          description: Loaded input data retrieved successfully.
+
+  /outputdata:
+    get:
+      tags:
+        - Test case information
+      summary: Get details of loaded output data.
+      operationId: api.api_controller.output_data
+      responses:
+        200:
+          description: Loaded output data retrieved successfully.
+
+  /collection:
+    get:
+      tags:
+        - Test case information
+      summary: Get details of loaded postman collection.
+      operationId: api.api_controller.collection
+      responses:
+        200:
+          description: Loaded postman collection retrieved successfully.
+
+  /results:
+    get:
+      tags:
+        - Test case information
+      summary: Get details of test results.
+      operationId: api.api_controller.results
+      responses:
+        200:
+          description: Test results retrieved successfully.
+
+  /busy:
+    get:
+      tags:
+        - Test framework internal
+      summary: Sets a busy flag for the running test case and initiates result checks.
+      operationId: api.api_controller.busy
+      responses:
+        200:
+          description: Information about readiness for continuation of test case execution.
+
+  /ready:
+    get:
+      tags:
+        - Test framework internal
+      summary: Checks if a busy/ready flag is set the running test case.
+      operationId: api.api_controller.ready
+      responses:
+        200:
+          description: Information about readiness.

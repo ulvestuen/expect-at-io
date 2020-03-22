@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+
+  expect-at-io:
+    container_name: expect-at-io
+    image: expect-at-io:latest
+    ports:
+      - "5000:5000"
+    command: "0.0.0.0"
+
+  wiremock-test:
+    container_name: wiremock-test
+    image: wiremock-test:latest
+    depends_on:
+      - expect-at-io
