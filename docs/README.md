@@ -38,15 +38,15 @@ In this example, the test framework is started together with the test object.
 
 ### Start test object
 #### On localhost
-From within the `example/wiremock-test/` folder, run the following script to start an example instance of wiremock:
+From within the `example/mock-wiremock/` folder, run the following script to start an example instance of wiremock:
 ```
 ./start_wiremock.sh
 ```
 #### In docker
-Enter the `example/wiremock-test/` folder and run the following command to build a new docker image of the 
-wiremock-test instance:
+Enter the `example/mock-wiremock/` folder and run the following command to build a new docker image of the 
+mock-wiremock instance:
 ```
-docker build -t wiremock-test:latest .
+docker build -t mock-wiremock:latest .
 ```
 From the `example/` folder, start the test environment:
 ```
@@ -59,7 +59,7 @@ Test is loaded by the following curl command:
 curl -X POST \
   http://localhost:5000/load \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
-  -F collection=@wiremock-test.postman_collection.json \
+  -F collection=@expect-at-io-example.postman_collection.json \
   -F testdata=@input-output_data.json
 ```
 
@@ -69,7 +69,7 @@ Test is loaded by the following curl command:
 curl -X POST \
   http://localhost:5000/load \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
-  -F collection=@wiremock-test.postman_collection.json \
+  -F collection=@expect-at-io-example.postman_collection.json \
   -F testdata=@input-output_data-docker.json
 ```
 

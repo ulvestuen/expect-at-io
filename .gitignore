@@ -3,4 +3,4 @@ venv/
 env/
 __pycache__/
 
-example/wiremock-test/*jar
+example/mock-wiremock/*jar

@@ -8,8 +8,8 @@ services:
       - "5000:5000"
     command: "0.0.0.0"
 
-  wiremock-test:
-    container_name: wiremock-test
-    image: wiremock-test:latest
+  mock-wiremock:
+    container_name: mock-wiremock
+    image: mock-wiremock:latest
     depends_on:
       - expect-at-io
