@@ -40,7 +40,7 @@ paths:
         200:
           description: Successfully started running test cases.
 
-  /inputdata:
+  /spec/input:
     get:
       tags:
         - Test case information
@@ -50,7 +50,7 @@ paths:
         200:
           description: Loaded input data retrieved successfully.
 
-  /outputdata:
+  /spec/output:
     get:
       tags:
         - Test case information
@@ -60,7 +60,7 @@ paths:
         200:
           description: Loaded output data retrieved successfully.
 
-  /collection:
+  /spec/collection:
     get:
       tags:
         - Test case information
@@ -69,6 +69,16 @@ paths:
       responses:
         200:
           description: Loaded postman collection retrieved successfully.
+
+  /spec/testcases:
+    get:
+      tags:
+        - Test case information
+      summary: Get details of loaded test case data.
+      operationId: api.api_controller.test_cases
+      responses:
+        200:
+          description: Loaded test case data retrieved successfully.
 
   /results:
     get:

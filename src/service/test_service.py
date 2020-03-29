@@ -11,9 +11,9 @@ class TestService:
     collection = None
     input_data = None
     output_data = None
+    test_results = None
 
     result_checkers = {}
-    test_results = {}
 
     def __init__(self):
         self.init()
@@ -22,11 +22,12 @@ class TestService:
     def init(self):
         self.ready_for_new_test = True
         self.current_test_id = 0
+        self.test_results = []
 
-    @staticmethod
-    def run_test():
+    def run_test(self):
+        self.init()
         pid = subprocess.Popen(
-            ["newman", "run", "-d", "http://localhost:5000/inputdata", "http://localhost:5000/collection"]).pid
+            ["newman", "run", "-d", "http://localhost:5000/spec/input", "http://localhost:5000/spec/collection"]).pid
         return "Started newman with pid: " + str(pid)
 
     def run_check_for_result(self):
@@ -68,11 +69,11 @@ class TestService:
         self.ready_for_new_test = True
 
     def register_failed_test(self):
-        self.test_results[self.current_test_id] = {"test_id": self.current_test_id, "result": "Failed"}
+        self.test_results.append({"test_id": self.current_test_id, "result": "Failed"})
         print("Results check failed for test with id: " + str(self.current_test_id))
 
     def register_successful_test(self):
-        self.test_results[self.current_test_id] = {"test_id": self.current_test_id, "result": "Success"}
+        self.test_results.append({"test_id": self.current_test_id, "result": "Success"})
         print("Results checked OK for test with id: " + str(self.current_test_id))
 
     def get_result_check_list(self):

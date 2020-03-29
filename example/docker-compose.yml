@@ -3,7 +3,7 @@ services:
 
   expect-at-io:
     container_name: expect-at-io
-    image: expect-at-io:latest
+    image: ulvestuen/expect-at-io:latest
     ports:
       - "5000:5000"
     command: "0.0.0.0"

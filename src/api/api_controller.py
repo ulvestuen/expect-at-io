@@ -22,9 +22,9 @@ def load():
     test_service.input_data = test_data["input"]
     test_service.output_data = test_data["output"]
 
-    return "Test case loaded. Input data available at /inputdata \n" \
-           "Expected output data available at /outputdata \n" \
-           "Postman collection available at /collection"
+    return "Test case loaded. Input data available at /spec/input \n" \
+           "Expected output data available at /spec/output \n" \
+           "Postman collection available at /spec/collection"
 
 
 def run():
@@ -45,6 +45,22 @@ def input_data():
 
 def output_data():
     return jsonify(test_service.output_data)
+
+
+def test_cases():
+    api_request_names = [req["name"] for req in test_service.collection["item"]]
+    test_case_list = []
+    test_case_id = 0
+    for input_data in test_service.input_data:
+        for api_request in api_request_names:
+            output_data_list = test_service.output_data[test_case_id]
+            test_case = {"id": test_case_id,
+                         "request": api_request,
+                         "input": input_data,
+                         "output": output_data_list}
+            test_case_list.append(test_case)
+            test_case_id += 1
+    return jsonify(test_case_list)
 
 
 def ready():

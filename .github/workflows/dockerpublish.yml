@@ -76,7 +76,7 @@ jobs:
           docker push $IMAGE_ID:$VERSION
   # Push image to Docker Hub.
   # See also https://docs.docker.com/docker-hub/builds/
-  push-hub:
+  push-docker-hub:
     # Ensure test job passes before pushing image.
     needs: test
 
