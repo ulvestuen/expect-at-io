@@ -51,12 +51,12 @@ def test_cases():
     api_request_names = [req["name"] for req in test_service.collection["item"]]
     test_case_list = []
     test_case_id = 0
-    for input_data in test_service.input_data:
+    for in_data in test_service.input_data:
         for api_request in api_request_names:
             output_data_list = test_service.output_data[test_case_id]
             test_case = {"id": test_case_id,
                          "request": api_request,
-                         "input": input_data,
+                         "input": in_data,
                          "output": output_data_list}
             test_case_list.append(test_case)
             test_case_id += 1

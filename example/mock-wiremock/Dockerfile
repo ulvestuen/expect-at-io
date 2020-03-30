@@ -1,3 +1,9 @@
+# When docker image is built from this file, the image bundles OpenJDK 8, which is available under a
+# "GNU GPLv2" license with Classpath Exception. For details, see https://openjdk.java.net/legal/gplv2+ce.html
+
+# When docker image is built from this file, the image bundles the latest version of WireMock, which is available under
+# a "Apache-2.0" license. For details, see https://github.com/tomakehurst/wiremock/blob/master/LICENSE.txt
+
 FROM openjdk:8
 
 RUN groupadd -g 999 expect-at-io && \
