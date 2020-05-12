@@ -1,0 +1,12 @@
+graph LR
+    subgraph Device Under Test
+        API[API] --> Internal-1[Internal 1] --> Internal-2[Internal 2] --> Internal-3[Internal 3]
+    end
+    Sender(Sender) --> API
+    Internal-2 --> Receiver-A(Receiver A)
+    Internal-3 --> Receiver-B(Receiver B)
+    Internal-3 --> Receiver-C(Receiver C)
+    classDef internal stroke:#000;
+    class API,Internal-1,Internal-2,Internal-3 internal;
+    classDef external fill:#f96,stroke:#333;
+    class Sender,Receiver-A,Receiver-B,Receiver-C external;
